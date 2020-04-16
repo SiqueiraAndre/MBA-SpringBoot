@@ -2,6 +2,7 @@ package br.bliblioteca.livros.controladores;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,16 +10,24 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
 import br.bliblioteca.livros.model.Livro;
+import br.bliblioteca.livros.service.LivrosService;
 
 @Controller
 @RequestMapping("/livros")
 public class LivroController {
+	
+	@Autowired
+	LivrosService livrosService;
 
 	@GetMapping("/list")
 	public ModelAndView livros() {		
 		ModelAndView modelAndView = new ModelAndView("livros/list");
-		modelAndView.addObject("livros", Arrays.asList(new Livro()));
+		
+		List<Livro> listaLivros = livrosService.listaTodosLivros();
+		
+		modelAndView.addObject("livros", listaLivros);
 		return modelAndView;
 	}
 

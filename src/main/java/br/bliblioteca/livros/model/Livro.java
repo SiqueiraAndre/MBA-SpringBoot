@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "LIVROS")
+@Table(name = "LIVRO")
 public class Livro  {
 
 	@Id
@@ -24,7 +24,7 @@ public class Livro  {
 	@Column(name = "LIVRO_QUANTIDADE_PAGINAS")
 	private int quantidadePaginas;
 
-	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
 	@JoinColumn(name = "autor_id")
 	private Autor autor;
 
