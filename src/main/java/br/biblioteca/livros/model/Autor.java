@@ -1,10 +1,11 @@
-package br.bliblioteca.livros.model;
+package br.biblioteca.livros.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,7 +24,7 @@ public class Autor implements Serializable {
 
 	private String nome;
 
-	@OneToMany(mappedBy = "autor")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "autor")
 	private List<Livro> livros = new ArrayList<>();
 
 	public Long getId() {

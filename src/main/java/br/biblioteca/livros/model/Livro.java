@@ -1,26 +1,35 @@
-package br.bliblioteca.livros.model;
+package br.biblioteca.livros.model;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "LIVRO")
+<<<<<<< HEAD:src/main/java/br/bliblioteca/livros/model/Livro.java
 public class Livro  {
+=======
+public class Livro {
+>>>>>>> 40d7980fb2117a7f8200a6283e536ba05eb8b327:src/main/java/br/biblioteca/livros/model/Livro.java
 
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "LIVRO_NOME")
+	@NotEmpty
+	@Column(name = "NOME")
 	private String nome;
 
+	@Min(10)
 	@Column(name = "LIVRO_QUANTIDADE_PAGINAS")
 	private int quantidadePaginas;
 
