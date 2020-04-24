@@ -92,11 +92,14 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 		</dependency>
+<<<<<<< HEAD
+=======
 
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
 		</dependency>
+>>>>>>> 8b32744415924142a06e3032dc32d64f03346876
 		
 	</dependencies>
 

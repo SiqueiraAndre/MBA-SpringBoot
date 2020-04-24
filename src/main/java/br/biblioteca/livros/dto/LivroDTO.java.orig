@@ -1,5 +1,15 @@
 package br.biblioteca.livros.dto;
 
+<<<<<<< HEAD
+public class LivroDTO {
+	
+	private String titulo;
+	
+	private int paginas;
+	
+	private String autor;
+
+=======
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +31,7 @@ public class LivroDTO {
 		this.avaliacoes = avaliacoes;
 	}
 
+>>>>>>> 8b32744415924142a06e3032dc32d64f03346876
 	public String getTitulo() {
 		return titulo;
 	}
@@ -44,40 +55,9 @@ public class LivroDTO {
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
-
-}
-package br.biblioteca.livros.dto;
-
-public class LivroDTO {
+<<<<<<< HEAD
 	
-	private String titulo;
-	
-	private int paginas;
-	
-	private String autor;
+=======
 
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-
-	public int getPaginas() {
-		return paginas;
-	}
-
-	public void setPaginas(int paginas) {
-		this.paginas = paginas;
-	}
-
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-	
+>>>>>>> 8b32744415924142a06e3032dc32d64f03346876
 }

@@ -1,0 +1,40 @@
+package br.biblioteca.livros.conversor;
+
+<<<<<<< HEAD
+=======
+import java.util.Arrays;
+>>>>>>> 8b32744415924142a06e3032dc32d64f03346876
+import java.util.List;
+import java.util.stream.Collectors;
+
+import br.biblioteca.livros.dto.LivroDTO;
+import br.biblioteca.livros.model.Livro;
+
+public class LivroConverter {
+
+	public static LivroDTO toDTO(Livro livro) {
+		LivroDTO dto = new LivroDTO();
+		dto.setTitulo(livro.getNome());
+		dto.setPaginas(livro.getQuantidadePaginas());
+<<<<<<< HEAD
+		dto.setAutor(livro.getAutor() != null ?  livro.getAutor().getNome() : null);
+		return dto;
+	}
+	
+	public static List<LivroDTO> toDTO(List<Livro> livros) {
+		
+		return livros.stream().map(l -> toDTO(l)).collect(Collectors.toList());
+	}	
+	
+=======
+		dto.setAutor(livro.getAutor() != null ? livro.getAutor().getNome() : null);
+		dto.setAvaliacoes(
+				livro.getAvaliacoes().size() > 0 ? AvaliacaoConverter.toDTO(livro.getAvaliacoes()) : Arrays.asList());
+		return dto;
+	}
+
+	public static List<LivroDTO> toDTO(List<Livro> livros) {
+		return livros.stream().map(l -> toDTO(l)).collect(Collectors.toList());
+	}
+>>>>>>> 8b32744415924142a06e3032dc32d64f03346876
+}
