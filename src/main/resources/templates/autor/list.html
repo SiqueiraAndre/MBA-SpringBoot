@@ -4,7 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
-    <title>Livros</title>
+    <title>Autores</title>
     <!-- Bootstrap -->
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap-theme.min.css}"/>
@@ -13,7 +13,6 @@
 </head>
 <body>
 <div class="container" style="margin:10px">
-    <!--    navbar-->
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -36,23 +35,19 @@
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
     </nav>
-    <!--    navbar-->
-    <a class="btn btn-primary" style="margin-bottom: 10px" href="#" th:href="@{/livros/novo}">Novo</a>
+    <a class="btn btn-primary" style="margin-bottom: 10px" href="#" th:href="@{/autor/novo}">Novo</a>
     <table class="table">
         <tr class="">
             <th>ID</th>
             <th>NOME</th>
-            <th>PÁGINAS</th>
-            <th>AUTOR</th>
-            <th>AÇÕES</th>
+            <th>AÇÃO</th>
         </tr>
-        <tr th:each="livro : ${livros}">
-            <td th:text="${livro?.id}"></td>
-            <td th:text="${livro?.nome}"></td>
-            <td th:text="${livro.quantidadePaginas}"></td>
-            <td th:text="${livro?.autor?.nome}"></td>
-            <td><a class="btn btn-primary" href="#" th:href="@{'/livros/alterar/'+${livro.id}}"> Alterar</a>
-                <a class="btn btn-danger" href="#" th:href="@{'/livros/excluir/'+${livro.id}}"> Excluir</a>
+        <tr th:each="autor : ${autores}">
+            <td th:text="${autor?.id}"></td>
+            <td th:text="${autor?.nome}"></td>
+            <td>
+                <a class="btn btn-primary" href="#" th:href="@{'/autor/alterar/'+${autor.id}}"> Alterar</a>
+                <a class="btn btn-danger" href="#" th:href="@{'/autor/excluir/'+${autor.id}}"> Excluir</a>
             </td>
         </tr>
     </table>
