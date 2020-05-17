@@ -20,6 +20,5 @@ Retorna a lista de livros no padrão abaixo
     ]
   }
 ]
-```
 
 > **Obs.:** A autenticação foi desenvolvida apenas para o sistema, as apis no momento permanescem públicas.
