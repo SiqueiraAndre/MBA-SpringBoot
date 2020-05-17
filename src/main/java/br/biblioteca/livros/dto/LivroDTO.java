@@ -5,44 +5,40 @@ import java.util.List;
 
 public class LivroDTO {
 
-	private String titulo;
+    private String titulo;
+    private int paginas;
+    private String autor;
+    private List<AvaliacaoDTO> avaliacoes = new ArrayList<AvaliacaoDTO>();
 
-	private int paginas;
+    public String getTitulo() {
+        return titulo;
+    }
 
-	private String autor;
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 
-	private List<AvaliacaoDTO> avaliacoes = new ArrayList<AvaliacaoDTO>();
+    public int getPaginas() {
+        return paginas;
+    }
 
-	public List<AvaliacaoDTO> getAvaliacoes() {
-		return avaliacoes;
-	}
+    public void setPaginas(int paginas) {
+        this.paginas = paginas;
+    }
 
-	public void setAvaliacoes(List<AvaliacaoDTO> avaliacoes) {
-		this.avaliacoes = avaliacoes;
-	}
+    public String getAutor() {
+        return autor;
+    }
 
-	public String getTitulo() {
-		return titulo;
-	}
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
 
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
+    public List<AvaliacaoDTO> getAvaliacoes() {
+        return avaliacoes;
+    }
 
-	public int getPaginas() {
-		return paginas;
-	}
-
-	public void setPaginas(int paginas) {
-		this.paginas = paginas;
-	}
-
-	public String getAutor() {
-		return autor;
-	}
-
-	public void setAutor(String autor) {
-		this.autor = autor;
-	}
-
+    public void setAvaliacoes(List<AvaliacaoDTO> avaliacoes) {
+        this.avaliacoes = avaliacoes;
+    }
 }

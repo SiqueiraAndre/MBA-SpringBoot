@@ -1,21 +1,10 @@
 package br.biblioteca.livros.model;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "LIVRO")
@@ -26,33 +15,25 @@ public class Livro {
 	private Long id;
 
 	@NotEmpty
-	@Column(name = "NOME")
+	@Column(name = "NOME", nullable = false)
 	private String nome;
 
 	@Min(10)
-	@Column(name = "LIVRO_QUANTIDADE_PAGINAS")
-	private int quantidadePaginas;
-
+	@Column(name = "QUANTIDADE_PAGINAS", nullable = false)
+	private Integer quantidadePaginas;
+	
 	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
-	@JoinColumn(name = "autor_id")
+	@JoinColumn(name = "AUTOR_ID")
 	private Autor autor;
 
 	@OneToMany(mappedBy = "livro")
-	private List<Avaliacao> avaliacoes = new ArrayList<Avaliacao>();
-
-	public List<Avaliacao> getAvaliacoes() {
-		return avaliacoes;
-	}
-
-	public void setAvaliacoes(List<Avaliacao> avaliacoes) {
-		this.avaliacoes = avaliacoes;
-	}
+	private List<Avaliacao> avaliacoes = new ArrayList<>();
 
 	public Long getId() {
 		return id;
 	}
 
-	public void setId(final Long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -60,15 +41,15 @@ public class Livro {
 		return nome;
 	}
 
-	public void setNome(final String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
-	public int getQuantidadePaginas() {
+	public Integer getQuantidadePaginas() {
 		return quantidadePaginas;
 	}
 
-	public void setQuantidadePaginas(final int quantidadePaginas) {
+	public void setQuantidadePaginas(Integer quantidadePaginas) {
 		this.quantidadePaginas = quantidadePaginas;
 	}
 
@@ -76,21 +57,15 @@ public class Livro {
 		return autor;
 	}
 
-	public void setAutor(final Autor autor) {
+	public void setAutor(Autor autor) {
 		this.autor = autor;
 	}
 
-	@Override
-	public String toString() {
-		final StringBuilder builder = new StringBuilder()//
-				.append("Livro [")//
-				.append("id=")//
-				.append(id)//
-				.append(",nome=\"")//
-				.append(nome).append("\"")//
-				.append(",quantidadePaginas=")//
-				.append(quantidadePaginas)//
-				.append("]");
-		return builder.toString();
+	public List<Avaliacao> getAvaliacoes() {
+		return avaliacoes;
+	}
+
+	public void setAvaliacoes(List<Avaliacao> avaliacoes) {
+		this.avaliacoes = avaliacoes;
 	}
 }

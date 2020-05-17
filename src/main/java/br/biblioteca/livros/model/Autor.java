@@ -1,30 +1,22 @@
 package br.biblioteca.livros.model;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "AUTOR")
-public class Autor implements Serializable {
-
-	private static final long serialVersionUID = -2931921441183751443L;
+public class Autor {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-
+	
+	@Column(name = "NOME")
 	private String nome;
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "autor")
+	
+	@OneToMany(mappedBy = "autor", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Livro> livros = new ArrayList<>();
 
 	public Long getId() {
@@ -47,12 +39,12 @@ public class Autor implements Serializable {
 		return livros;
 	}
 
-	public void setLivros(final List<Livro> livros) {
+	public void setLivros(List<Livro> livros) {
 		this.livros = livros;
 	}
 
 	@Override
 	public String toString() {
-		return "Autor [id=" + id + ", nome=" + nome + "]";
+		return "Autor [id=" + id +", nome=" + nome + "]";
 	}
 }

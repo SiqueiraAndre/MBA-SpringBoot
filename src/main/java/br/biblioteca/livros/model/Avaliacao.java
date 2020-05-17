@@ -1,57 +1,55 @@
 package br.biblioteca.livros.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
+@Table(name = "AVALIACAO")
 public class Avaliacao {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	private String comentario;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
+    @JoinColumn(name = "LIVRO_ID")
+    public Livro livro;
 
-	private int nota;
+    @NotEmpty
+    @Column(name = "COMENTARIO", nullable = false)
+    private String comentario;
 
-	@ManyToOne
-	@JoinColumn(name = "livro_id")
-	public Livro livro;
+    private int nota;
 
-	public Livro getLivro() {
-		return livro;
-	}
+    public int getNota() {
+        return nota;
+    }
 
-	public void setLivro(Livro livro) {
-		this.livro = livro;
-	}
+    public void setNota(int nota) {
+        this.nota = nota;
+    }
 
-	public Long getId() {
-		return id;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public String getComentario() {
-		return comentario;
-	}
+    public String getComentario() {
+        return comentario;
+    }
 
-	public void setComentario(String comentario) {
-		this.comentario = comentario;
-	}
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
 
-	public int getNota() {
-		return nota;
-	}
+    public Livro getLivro() {
+        return livro;
+    }
 
-	public void setNota(int nota) {
-		this.nota = nota;
-	}
-
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
 }
